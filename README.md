@@ -100,7 +100,7 @@ echo "DietPi VM $VMID successfully created and started!"
 
 ```text
 MIT License
-Copyright (c) [year] [your name]
+Copyright (c) [2025] [Sabbir]
 ```
 
 *This project is not affiliated with DietPi or Proxmox GmbH*
