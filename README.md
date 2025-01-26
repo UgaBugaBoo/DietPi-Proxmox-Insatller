@@ -18,16 +18,9 @@ A complete guide and automation script for deploying DietPi on Proxmox VE. Combi
 
 ## 🚀 Quick Installation
 
-### Manual Method
-
+### Manual Method (Single Pasteable Command)
 ```bash
-VMID=100 && STORAGE=local-lvm && BRIDGE=vmbr0
-wget https://dietpi.com/downloads/images/DietPi_Proxmox-x86_64-Bookworm.qcow2.xz
-xz -d DietPi_Proxmox-x86_64-Bookworm.qcow2.xz
-qm create $VMID --name "DietPi" --memory 2048 --cores 2 --net0 virtio,bridge=$BRIDGE --scsihw virtio-scsi-pci
-qm importdisk $VMID DietPi_Proxmox-x86_64-Bookworm.qcow2 $STORAGE
-qm set $VMID --scsi0 $STORAGE:vm-$VMID-disk-0 --boot order=scsi0 --agent enabled=1 --ostype l26
-qm start $VMID
+VMID=100 && STORAGE=local-lvm && BRIDGE=vmbr0 && wget https://dietpi.com/downloads/images/DietPi_Proxmox-x86_64-Bookworm.qcow2.xz && xz -d DietPi_Proxmox-x86_64-Bookworm.qcow2.xz && qm create $VMID --name "DietPi" --memory 2048 --cores 2 --net0 virtio,bridge=$BRIDGE --scsihw virtio-scsi-pci && qm importdisk $VMID DietPi_Proxmox-x86_64-Bookworm.qcow2 $STORAGE && qm set $VMID --scsi0 $STORAGE:vm-$VMID-disk-0 --boot order=scsi0 --agent enabled=1 --ostype l26 && qm start $VMID
 ```
 
 ### Automated Script (`dietpi-install.sh`)
